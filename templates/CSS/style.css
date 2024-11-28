@@ -8,7 +8,7 @@
     font-family: "Playfair Display", serif;
 }
 :root  {
-    --blue:#0000FF;
+    --blue:#476CF1;
     --lightblue: #41DDF5;
     --yelllow:#F6EA5D;
     --black:#1E293B;
@@ -31,17 +31,62 @@ body {
 
 .dots {
     background-color: var(--blue);
-    border-radius: 30%;
-    height:44px;
-    width: 44px;
+    border-radius: 15px;
+    height:52px;
+    width: 52px;
     padding:7px;
     margin-left: 18px;
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
 
+.for_menu {
+    position: relative;    
+}
+
+.menu_box {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+#menu {
+    display: flex;
+    border-radius: 15px;
+    position: absolute;
+    left: 12px;
+    top: 0;
+    background-color: var(--blue);
+    width: 65px;
+    min-height: 445px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu_imgs {
+    padding: 3px;
+    border-radius: 9px;
+    background-color: var(--lightblue);
+}
+
+.line2 {
+    top: 66px;
+    position: absolute;
+    width: 100%;
+    border: none;
+    background-color: var(--lightblue);
+    height: 2px;
+}
+
+.is-back {
+    margin-bottom: 8px;
+}
+
 .header_box {
-    padding: 15px 0;
+    padding-top: 20px;
     display: flex;
     flex-direction: row;
 }
@@ -75,7 +120,7 @@ body {
     text-align: center;
 }
 
-.jox {
+.for_line {
     display: flex;
     justify-content: center;
 }
@@ -87,4 +132,5 @@ body {
     border: none;
     border-radius: 30px;
     margin-bottom: 20px;
+    margin-top: 10px;
 }

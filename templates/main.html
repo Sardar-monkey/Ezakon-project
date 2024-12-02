@@ -12,19 +12,29 @@
             <div class="header_box">
                 <div class="search">
                     <img src="./images/loupe.svg" alt="loupe" class="loupe">
-                    <input type="text" class="search_inp" placeholder="...">
+                    <input type="text" class="search_inp" placeholder="Пойск">
                 </div>
                 <div class="for_menu">
                     <img src="./images/Dots.svg" alt="dots" class="dots" onclick="ShowMenu();">
                     <div id="menu">
                         <hr class="line2">
                         <div class="menu_box">
-                            <img src="./images/Profile.svg" alt="" class="menu_imgs">
-                            <img src="./images/Laws.svg" alt="" class="menu_imgs">
-                            <img src="./images/Lawers.svg" alt="" class="menu_imgs">
-                            <img src="./images/Ai.svg" alt="" class="menu_imgs">
+                            <div class="menu_imgs">
+                                <img src="./images/Profile.svg" alt="" class="menu_svg">
+                            </div>
+                            <div class="menu_imgs">
+                                <img src="./images/Laws.svg" alt="" class="menu_svg">
+                            </div>
+                            <div class="menu_imgs">
+                                <img src="./images/Lawers.svg" alt="" class="menu_svg">
+                            </div>
+                            <div class="menu_imgs">
+                                <img src="./images/Ai.svg" alt="" class="menu_svg">
+                            </div>
                         </div>
-                        <img src="./images/arrow.svg" alt="" class="menu_imgs is-back" onclick="ShowMenu();">
+                        <div class="menu_imgs is-back">
+                            <img src="./images/arrow.svg" alt="" class="menu_svg" onclick="ShowMenu();">
+                        </div>
                     </div>
                 </div>
 
@@ -35,40 +45,54 @@
     <div class="for_line">
         <hr class="line">   
     </div>
-    <div class="card-news">
-        <div class="card-container">
-            <div class="news-header">
-                <a href="#" class="news-title">НОВОСТИ</a>
-            </div>
-            <div class="news-image">
-                <img src="./images/news-img.png" alt="news-photo" class="news-photo">
-            </div> 
-            <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div> 
-    </div>
-    <div class="card-news">
-        <div class="card-container">
-            <div class="news-image">
-                <img src="./images/news-img.png" alt="news-photo" class="news-photo">
-            </div> 
-            <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div> 
-    </div>
-    <div class="card-news">
-        <div class="card-container">
-            <div class="news-header">
-
-            <div class="news-image">
-                <img src="./images/news-img.png" alt="news-photo" class="news-photo">
-            </div> 
-            <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
         
     <main>
-        <section class="main">
-            
-        </section>
+        <div class="container">
+            <div class="card-news">
+                <div class="news-header">
+                    <h1 href="#" class="news-title">Рекомендаций</h1>
+                </div>
+                <div class="card-container">
+                    <h2 class="card-header">Конституция страны</h2> 
+                    <div class="categories">
+                        <p class="category">Конституция страны</p>
+                        <p class="category">Конституция</p>
+                        <p class="category">Государственное управление</p>
+                    </div>
+                    <p class="description">Основные права и свободы граждан: право на жизнь, свободу слова, неприкосновенность частной жизни, равенство перед законом.</p>
+                    <div class="buttons">
+                        <button class="read_btn">Легкую</button>
+                        <button class="read_btn is-blue">Полную</button>
+                    </div>
+                </div> 
+                <div class="card-container">
+                    <h2 class="card-header">Конституция страны</h2> 
+                    <div class="categories">
+                        <p class="category">Конституция страны</p>
+                        <p class="category">Конституция</p>
+                        <p class="category">Государственное управление</p>
+                    </div>
+                    <p class="description">Основные права и свободы граждан: право на жизнь, свободу слова, неприкосновенность частной жизни, равенство перед законом.</p>
+                    <div class="buttons">
+                        <button class="read_btn">Легкую</button>
+                        <button class="read_btn is-blue">Полную</button>
+                    </div>
+                </div> 
+                <div class="card-container">
+                    <h2 class="card-header">Конституция страны</h2> 
+                    <div class="categories">
+                        <p class="category">Конституция страны</p>
+                        <p class="category">Конституция</p>
+                        <p class="category">Государственное управление</p>
+                    </div>
+                    <p class="description">Основные права и свободы граждан: право на жизнь, свободу слова, неприкосновенность частной жизни, равенство перед законом.</p>
+                    <div class="buttons">
+                        <button class="read_btn">Легкую</button>
+                        <button class="read_btn is-blue">Полную</button>
+                    </div>
+                </div> 
+            </div>
+        </div>
     </main>
 
     <script src="./JS/script.js"></script>

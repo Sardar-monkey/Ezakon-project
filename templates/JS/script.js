@@ -24,7 +24,7 @@ ChatForm.addEventListener('submit', async (event) => {
     Message(UserMessage, 'user')
 
     try {
-        const response = await fetch('django_server_url', {
+        const response = await fetch('django_serv9r_url', {
             method : 'POST',
             headers : {'Content-type' : 'application/json'},
             body : JSON.stringify({message : UserMessage})
@@ -42,4 +42,3 @@ ChatForm.addEventListener('submit', async (event) => {
 
 })
 
-' beknur = {"REPLY" : "Beknur","surname" : 8632}'

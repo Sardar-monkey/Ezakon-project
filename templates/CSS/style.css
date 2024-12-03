@@ -495,3 +495,105 @@ body {
   color: var(--blue);
 }
 /* Profile */
+/* Используем существующие переменные и стили */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin:0 20px;
+    background-color: var(--blue  );
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.comm {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px;
+  vertical-align: middle; 
+}
+
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--white);
+}
+
+.profile-info .rating {
+    color: var(--yelllow);
+}
+
+.profile-details {
+    padding: 20px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details p {
+    margin-bottom: 15px;
+}
+
+.profile-details div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-details div::before {
+    content: '•';
+    color: var(--yelllow);
+    margin-right: 10px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.profile-details div:last-child {
+    margin-bottom: 0;
+}
+
+.comment-button {
+    width: 51%;
+    padding: 15px;
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    margin-left: 80px;
+    margin-bottom:20px;
+    border: 2px solid;
+}
+
+.comment-button:hover {
+    background-color: var(--lightblue);
+}
+
+.backicon {
+    margin: 10px;
+}
+.comm {
+  width:20px;
+  height: 20px;
+}

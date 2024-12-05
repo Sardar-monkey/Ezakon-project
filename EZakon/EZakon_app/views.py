@@ -69,6 +69,8 @@ def sorry(request):
 # Chat with AI
 # Укажите свой API-ключ
 
+openai.api_key = "Your_Api_Key"
+
 def chat_with_ai(request):
     if request.method == 'POST':
         # Читаем данные, отправленные фронтендом

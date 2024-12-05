@@ -1,0 +1,33 @@
+{% extends 'base.html' %}   
+{% load static %}
+
+{% block header %}
+<header class="header is-darkblue">
+    <div class="container is-chat">
+        <div class="header_box is-darkblue_2">
+            <a href="{% url 'main_page' %}">
+                <img src="{% static './images/Back.svg' %}" alt="Back" class="backicon">
+            </a>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+<body class="ai_chat">
+    <main class="test">
+        <div id="chat-window" class="chat-window">
+            
+        </div>
+        <div class="for_center">            
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="user-input" placeholder="Написать..." required />
+                <button type="submit">
+                    <img src="{% static './images/send.svg' %}" alt="send">
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+    {% endblock %}

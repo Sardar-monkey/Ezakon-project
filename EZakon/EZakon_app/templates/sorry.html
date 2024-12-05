@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header class="header is-darkblue">
+    <div class="container is-chat">
+        <div class="header_box is-darkblue_2">
+            <a href="{% url 'main_page' %}">
+                <img src="{% static './images/Back.svg' %}" alt="Back" class="backicon">
+            </a>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="container is-sorry">
+    <div class="sorry_box">
+        <h2>Войдите в существующий аккаунт или создайте новый для доступа к этому каталогу :/</h2>
+        <div class="sorry_btns">
+            <a href="{% url 'sign_up' %}">
+                <button class="sorry_button">Создать аккаунт</button>
+            </a>
+
+            <a href="{% url 'login_view' %}">
+                <button class="sorry_button">Войти</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

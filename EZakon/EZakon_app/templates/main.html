@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card-news">
+        <div class="card-container">
+            <h2 class="card-header">Конституция страны</h2> 
+            <div class="categories">
+                <p class="category">Конституция страны</p>
+                <p class="category">Конституция</p>
+                <p class="category">Государственное управление</p>
+            </div>
+            <p class="description">Основные права и свободы граждан: право на жизнь, свободу слова, неприкосновенность частной жизни, равенство перед законом.</p>
+            <div class="buttons">
+                <button class="read_btn">Легкую</button>
+                <a href="{% url 'laws_desc_page' %}">
+                    <button class="read_btn is-blue">Полную</button>
+                </a>
+            </div>
+        </div> 
+    </div>
+</div>
+{% endblock %}

@@ -17,6 +17,10 @@
   --heavygray: #A7A7A7;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: var(--lightblue);
 }
@@ -320,8 +324,10 @@ body {
 .error {
   margin-bottom: 20px;
   font-size: 21px;
-  display: none;
   color: white;
+}
+.error ul {
+  list-style: none;
 }
 .second_btn { 
   border-radius: 30px;
@@ -334,6 +340,44 @@ body {
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.7);
   -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.7);
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.7);
+}
+
+.sorry_box {
+  background-color: var(--blue);
+  padding: 17px;
+  margin-top: 135px;
+  text-align: center;
+  border-radius: 10px;
+}
+.sorry_box h2 {
+  margin-bottom: 7px;
+  color: var(--lightgray);
+  border: 3px solid var(--lightgray);
+  padding: 8px;
+}
+.sorry_btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.sorry_button {
+  cursor: pointer;
+  display: flex;
+  margin-top: 36px;
+  background-color: var(--blue);
+  border: 3px solid var(--lightgray);
+  border-radius: 20px;
+  color: var(--lightgray);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 3px 0px 1px rgba(0,0,0,0.8);
+}
+.sorry_button:hover {
+  transform: translateY(-5px);
+  background-color: var(--lightgray);
+  color: var(--blue);
 }
 /* Регистрация и авторизация */
 
@@ -447,6 +491,7 @@ body {
   flex-direction: column;
   text-align: center;
   color: var(--lightblue);
+  justify-content: center;
 }
 
 .name {
@@ -497,8 +542,11 @@ body {
   color: var(--blue);
 }
 
+.icon {
+  margin-right: 10px;
+}
+
 /* Profile */
-/* Используем существующие переменные и стили */
 
 .profile-header {
     display: flex;

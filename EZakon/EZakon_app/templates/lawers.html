@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%  block header %}
+<header>
+    <a href="{% url 'main_page' %}">
+        <img src="{% static './images/Back.svg' %}" alt="Назад" class="backicon">
+    </a>
+</header>
+<div class="for_line">
+    <hr class="line">   
+</div>
+{% endblock %}
+
+{%block content%}
+
+    
+<section class="profile-header">
+    <img src="user-image.jpg" alt="Фото пользователя" class="profile-pic">
+    <div class="profile-info">
+        <h2>Иван Русски</h2>
+        <p>Статус: занят</p>
+        <p class="rating">⭐ 8.7/10</p>
+        <p><img src="./images/comm.svg" class="comm"> 27</p>
+    </div>
+</section>
+
+<div class="for_line">
+    <hr class="line">   
+</div>
+
+<section class="profile-header">
+    <img src="user-image.jpg" alt="Фото пользователя" class="profile-pic">
+    <div class="profile-info">
+        <h2>Иван Русски</h2>
+        <p>Статус: занят</p>
+        <p class="rating">⭐ 8.7/10</p>
+        <p><img src="./images/comm.svg" class="comm"> 27</p>
+    </div>
+</section>
+{%endblock%}
+
+</body>
+</html>

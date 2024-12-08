@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block header %}
+<header class="header">
+    <div class="container">
+        <div class="header_box">
+            <div class="search is-easy">
+                Легкая
+            </div>
+            <div class="for_menu">
+                <img src="{% static './images/Dots.svg' %}" alt="dots" class="dots" onclick="ShowMenu();">
+                <div id="menu">
+                    <hr class="line2">
+                    <div class="menu_box">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'profile_page' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Profile.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'sorry' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Profile.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>                            
+                        {% endif %}
+                        <a href="{% url 'main_page' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Home.svg' %}" alt="" class="menu_svg">
+                            </div> 
+                        </a>
+                        <a href="{% url 'all_laws_page' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Laws.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>
+                        <a href="{% url 'lawyers_page' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Lawers.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'chat_page' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Ai.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'sorry' %}">
+                            <div class="menu_imgs">
+                                <img src="{% static './images/Ai.svg' %}" alt="" class="menu_svg">
+                            </div>
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="menu_imgs is-back">
+                        <img src="{% static './images/arrow.svg' %}" alt="" class="menu_svg" onclick="ShowMenu();">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="for_line">
+<hr class="line">   
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card-news">
+        <div class="card-container">
+            <h2 class="card-header">Конституция страны</h2> 
+            <div class="categories">
+                <p class="category">Конституция страны</p>
+                <p class="category">Конституция</p>
+                <p class="category">Государственное управление</p>
+            </div>
+            <p class="description">Основные права и свободы граждан: право на жизнь, свободу слова, неприкосновенность частной жизни, равенство перед законом.</p>
+            <div class="buttons">
+                <button class="read_btn">Легкую</button>
+                <a href="{% url 'laws_desc_page' %}">
+                    <button class="read_btn is-blue">Полную</button>
+                </a>
+            </div>
+        </div> 
+    </div>
+</div>
+{% endblock %}
+
+<script src="{% static './JS/script.js' %}"></script>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="main_block">
+        <span class="image_block"><img src="{% static './images/Human.svg' %}" alt="" class="icon"></span>
+        <div class="registration">Авторизация</div>
+
+        <div class="input_block">
+            <label for="id_username">Имя</label>
+            <span class="email_block_bd">
+                {{form.username}}
+            </span>
+        </div>
+        <div class="input_block">
+            <label for="id_password">Пароль</label>
+            <span class="email_block_bd">
+                {{form.password}}
+            </span>
+        </div>
+
+        <div class="error">{{form.non_field_errors}}</div>
+
+        <div class="buttons_2">
+            <button type="submit" class="main_btn">Войти</button>
+            <a href="{% url 'sign_up' %}">
+                <button type="button" class="second_btn">Создать новый аккаунт?</button>
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock %}

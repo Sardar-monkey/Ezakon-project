@@ -47,3 +47,8 @@ ChatForm.addEventListener('submit', async (event) => {
     UserInput.value = "";
 
 })
+const Test = document.getElementById('forma');
+Test.addEventListener('post', function(e) {
+    e.preventDefault();
+})
+

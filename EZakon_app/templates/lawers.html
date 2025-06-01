@@ -14,17 +14,18 @@
 
 {% block content %}
 {% for law in lawyers %}
+
 <main>
-    <a href="{% url 'LawyerProfile_page' law.pk %}">
-    <section class="profile-header">
-        <img src="{{ law.image_url }}" alt="Аватар юриста Иван Русски" class="profile-pic">
-        <div class="profile-info">
-            <h2>{{ law.name }}</h2>
-            <p>Статус:{{law.status}}</p>
-            <p class="rating">⭐ {{law.rating}}</p>
-            <p><img src="{% static 'images/comm.svg' %}" alt="Иконка комментариев" class="comm"> {{law.com}}</p>
-        </div>
-    </section>
+    <a href="{% url 'LawyerProfile_page' pk=law.pk %}">
+        <section class="profile-header">
+            <img src="{{ law.image_url }}" alt="Аватар юриста {{ law.name }}" class="profile-pic">
+            <div class="profile-info">
+                <h2>{{ law.name }}</h2>
+                <p>Статус: {{ law.status }}</p>
+                <p class="rating">⭐ {{ law.rating }}</p>
+                <p><img src="{% static 'images/comm.svg' %}" alt="Иконка комментариев" class="comm"> {{ law.com }}</p>
+            </div>
+        </section>
     </a>
 
     <div class="for_line">

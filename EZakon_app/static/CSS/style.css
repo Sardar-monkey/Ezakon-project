@@ -17,7 +17,6 @@
   --lightblue: #28516F;    
   --heavygray: #A7A7A7;
 
-  /* Новые переменные для карточек */
   --card-padding: 20px;
   --card-border-radius: 12px;
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -258,7 +257,6 @@ body {
 }
 
 
-/* Регистрация и авторизация */
 .main_block {
   border: 3px solid var(--lightgray);
   margin: 100px 30px 0;
@@ -478,9 +476,9 @@ body {
   flex-grow: 1;
   padding: 10px;
   border: none;
+  font-size: 14px;
 }
 
-/* Окно сообщений */
 
 .chat-message {
   padding: 10px;
@@ -685,7 +683,6 @@ body {
   height: 20px;
 }
 
-/* Profile */
 
 .is-easy {
   color: var(--white);
@@ -771,8 +768,6 @@ body {
 .comment-button:hover {
   background-color: var(--black);
 }
-
-/* Стили для формы комментариев */
 .comment-form {
   background-color: #f9f9f9;
   padding: 20px;
@@ -829,12 +824,10 @@ body {
   background-color: #218838;
 }
 
-/* Стилизация карточек */
-
 .cards-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Отступ между карточками */
+    gap: 20px;
     margin-top: 20px;
 }
 
@@ -862,7 +855,6 @@ body {
     margin-left: 20px;
 }
 
-/* Таблица Содержимого */
 .table-of-contents {
     background-color: var(--toc-background);
     padding: 15px;

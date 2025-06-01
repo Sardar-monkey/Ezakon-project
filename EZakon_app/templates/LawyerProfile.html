@@ -35,7 +35,6 @@
         <div>Стаж работы: {{ lawyer.stazh }} лет</div>
         <div>Телефон: {{ lawyer.phone }}</div>
     </section>
-    
     <a href="{% url 'comments_page' lawyer.pk %}" class="comment-button">Оставить отзыв</a>
 </main>
 {% endblock %}

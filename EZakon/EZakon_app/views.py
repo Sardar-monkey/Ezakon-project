@@ -105,7 +105,7 @@ def sorry(request):
     return render(request, "sorry.html")
 
 
-# Gemini API configuration from environment variables
+# иишка добавлена
 genai.configure(api_key=config('GEMINI_API_KEY'))
 
 
@@ -132,3 +132,4 @@ def chat_with_ai(request):
                 {"reply": [f"Произошла ошибка при обращении к AI: {str(e)}"]},
                 status=500,
             )
+

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"Get-ChildItem -Path . -Filter ''EZakon_app'' -Directory -Recurse | Select-Object FullName\")",
+      "Bash(cp:*)",
+      "Bash(python:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

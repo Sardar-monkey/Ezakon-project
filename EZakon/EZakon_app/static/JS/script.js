@@ -1,50 +1,100 @@
 function ShowMenu() {
-    const menu = document.getElementById("menu");
-    
-    menu.classList.toggle("open");
-};
+  const menu = document.getElementById("menu");
 
+  menu.classList.toggle("open");
+}
 
 const ChatForm = document.getElementById("chat-form");
 const ChatWindow = document.getElementById("chat-window");
 const UserInput = document.getElementById("user-input");
 
 // CSRF
-const csrftoken = document.querySelector('[name=csrf-token]').content;
+const csrftoken = document.querySelector("[name=csrf-token]").content;
 
-function Message(text, sender) {
-    const DivBox = document.createElement('div');
-    DivBox.textContent = text;
-    DivBox.classList.add('chat-message', sender);
-    ChatWindow.appendChild(DivBox);
-    ChatWindow.scrollTop = ChatWindow.scrollHeight;
+// Функция для создания typing индикатора
+function showTypingIndicator() {
+  const typingDiv = document.createElement("div");
+  typingDiv.classList.add("chat-message", "bot", "typing-indicator");
+  typingDiv.id = "typing-indicator";
+  typingDiv.innerHTML = `
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  `;
+  ChatWindow.appendChild(typingDiv);
+  ChatWindow.scrollTop = ChatWindow.scrollHeight;
+  return typingDiv;
 }
 
-ChatForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+// Функция для удаления typing индикатора
+function removeTypingIndicator() {
+  const typingIndicator = document.getElementById("typing-indicator");
+  if (typingIndicator) {
+    typingIndicator.remove();
+  }
+}
 
-    const UserMessage = UserInput.value.trim();
-    Message(UserMessage, 'user')
+function Message(text, sender) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("chat-message", sender);
 
-    try {
-        const response = await fetch('http://127.0.0.1:8000/chat_with_ai/', {
-            method : 'POST',
-            headers : {
-                'Content-type' : 'application/json',
-                'X-CSRFToken': csrftoken // Добавление CSRF-токена
-            },
-            body : JSON.stringify({message : UserMessage})
-        })
+  if (Array.isArray(text)) {
+    text.forEach((part, index) => {
+      const partDiv = document.createElement("div");
+      // Заменяем символы новой строки на теги <br> для корректного отображения в HTML
+      partDiv.innerHTML = part.replace(/\n/g, "<br>");
+      partDiv.style.marginBottom = index < text.length - 1 ? "0.5em" : "0";
+      messageContainer.appendChild(partDiv);
+    });
+  } else if (typeof text === "string") {
+    // Заменяем символы новой строки на теги <br> для корректного отображения в HTML
+    messageContainer.innerHTML = text.replace(/\n/g, "<br>");
+  } else {
+    messageContainer.textContent = "Некорректный формат ответа";
+  }
 
-        const data = await response.json();
+  ChatWindow.appendChild(messageContainer);
+  ChatWindow.scrollTop = ChatWindow.scrollHeight;
+}
 
-        Message(data.reply, 'bot');
+ChatForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-    } catch(error) {
-        Message("Ошибка при подключений к серверу", 'bot');
+  const UserMessage = UserInput.value.trim();
+  if (!UserMessage) return; // Не отправляем пустые сообщения
+
+  Message(UserMessage, "user");
+  UserInput.value = "";
+
+  // Показываем typing индикатор
+  showTypingIndicator();
+
+  try {
+    const response = await fetch("/chat_with_ai/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "X-CSRFToken": csrftoken,
+      },
+      body: JSON.stringify({ message: UserMessage }),
+    });
+
+    // Удаляем typing индикатор
+    removeTypingIndicator();
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    UserInput.value = "";
-
-})
-
+    const data = await response.json();
+    Message(data.reply, "bot");
+  } catch (error) {
+    removeTypingIndicator();
+    console.error("Ошибка:", error);
+    Message("Ошибка при подключении к серверу. Пожалуйста, попробуйте позже.", "bot");
+  }
+});
+const Test = document.getElementById("forma");
+Test.addEventListener("post", function (e) {
+  e.preventDefault();
+});

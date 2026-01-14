@@ -926,4 +926,356 @@ body {
   }
 }
 
+/* ============================================
+   СТРАНИЦА АДВОКАТОВ - УЛУЧШЕННЫЕ СТИЛИ
+   ============================================ */
+
+.lawyers-container {
+  padding: 30px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--lightblue);
+  min-height: 100vh;
+}
+
+.lawyers-title {
+  text-align: center;
+  color: var(--white);
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lawyers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .lawyers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lawyers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* ---- КАРТОЧКА АДВОКАТА ---- */
+
+.lawyer-card {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--lightblue) 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(214, 169, 93, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.lawyer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yelllow), rgba(246, 234, 93, 0.3));
+  z-index: 1;
+}
+
+.lawyer-card:hover {
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border-color: var(--yelllow);
+}
+
+/* ---- ЗАГОЛОВОК КАРТОЧКИ ---- */
+
+.lawyer-card-header {
+  display: flex;
+  align-items: center;
+  padding: 24px 20px 16px;
+  background: rgba(18, 43, 80, 0.5);
+  gap: 16px;
+}
+
+.lawyer-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 3px solid var(--yelllow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.lawyer-card:hover .lawyer-avatar {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.lawyer-top-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lawyer-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.lawyer-status {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: rgba(82, 188, 143, 0.9);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(82, 188, 143, 0.3);
+}
+
+/* ---- ТЕЛО КАРТОЧКИ ---- */
+
+.lawyer-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lawyer-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  border-left: 3px solid var(--yelllow);
+  transition: all 0.3s ease;
+}
+
+.lawyer-card:hover .lawyer-stat {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  color: var(--yelllow);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ---- ПОДВАЛ КАРТОЧКИ ---- */
+
+.lawyer-card-footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px 20px;
+  background: rgba(18, 43, 80, 0.3);
+}
+
+/* ---- КНОПКИ ---- */
+
+.lawyer-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.lawyer-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.lawyer-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.lawyer-btn-primary {
+  background: linear-gradient(135deg, var(--yelllow) 0%, #f0d747 100%);
+  color: var(--blue);
+}
+
+.lawyer-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(246, 234, 93, 0.4);
+}
+
+.lawyer-btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(246, 234, 93, 0.3);
+}
+
+.lawyer-btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.lawyer-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--yelllow);
+  color: var(--yelllow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.lawyer-btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* ---- АДАПТИВНОСТЬ ---- */
+
+@media (max-width: 767px) {
+  .lawyers-container {
+    padding: 20px 10px;
+  }
+
+  .lawyers-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .lawyer-card {
+    border-radius: 12px;
+  }
+
+  .lawyer-card-header {
+    padding: 16px 16px 12px;
+    gap: 12px;
+  }
+
+  .lawyer-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+  }
+
+  .lawyer-name {
+    font-size: 18px;
+  }
+
+  .lawyer-card-body {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .lawyer-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lawyers-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .lawyers-grid {
+    gap: 16px;
+  }
+
+  .lawyer-card-header {
+    padding: 14px 12px 10px;
+  }
+
+  .lawyer-avatar {
+    width: 65px;
+    height: 65px;
+  }
+
+  .lawyer-name {
+    font-size: 16px;
+  }
+
+  .lawyer-status {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .lawyer-card-body {
+    padding: 12px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 14px;
+  }
+
+  .lawyer-card-footer {
+    padding: 12px 12px 14px;
+    gap: 8px;
+  }
+
+  .lawyer-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
 

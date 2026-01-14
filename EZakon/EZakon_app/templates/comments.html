@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%  block header %}
+<header>
+    <a href="{% url 'LawyerProfile_page' lawyer.pk %}">
+        <img src="{% static './images/Back.svg' %}" alt="Назад" class="backicon">
+    </a>
+</header>
+<div class="for_line">
+    <hr class="line">   
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="main-content">
+    <div class="comment-form">
+        <h3>Оставить отзыв</h3>
+        {% if user.is_authenticated %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_text">Ваш отзыв:</label>
+                    {{ form.text }}
+                </div>
+                <button type="submit" class="submit-button">Отправить отзыв</button>
+            </form>
+        {% else %}
+            <p style="color: white; text-align: center;">
+                Пожалуйста, <a href="{% url 'login_view' %}" style="color: #F6EA5D;">авторизуйтесь</a> чтобы оставить отзыв
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="comments-section">
+        <h2>Все отзывы ({{ comments.count }})</h2>
+        {% if comments %}
+            {% for comment in comments %}
+            <div class="comment">
+                <p class="comment-author">{{ comment.author.username }}</p>
+                <p class="comment-text">{{ comment.text }}</p>
+                <span class="comment-time">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: white;">Пока нет отзывов. Будьте первым!</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

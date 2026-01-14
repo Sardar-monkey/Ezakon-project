@@ -14,30 +14,55 @@
 
 {%block content%}
 
+<section class="lawyers-container">
+    <h1 class="lawyers-title">Наши адвокаты</h1>
     
-<section class="profile-header">
-    <img src="user-image.jpg" alt="Фото пользователя" class="profile-pic">
-    <div class="profile-info">
-        <h2>Иван Русски</h2>
-        <p>Статус: занят</p>
-        <p class="rating">⭐ 8.7/10</p>
-        <p><img src="./images/comm.svg" class="comm"> 27</p>
+    <div class="lawyers-grid">
+        {% for lawyer in lawyers %}
+        <div class="lawyer-card">
+            <div class="lawyer-card-header">
+                <img src="{{ lawyer.image_url }}" alt="Фото пользователя" class="lawyer-avatar">
+                <div class="lawyer-top-info">
+                    <h2 class="lawyer-name">{{ lawyer.name }}</h2>
+                    <span class="lawyer-status">{{ lawyer.status }}</span>
+                </div>
+            </div>
+            
+            <div class="lawyer-card-body">
+                <div class="lawyer-stat">
+                    <span class="stat-label">Рейтинг:</span>
+                    <span class="stat-value">⭐ {{ lawyer.rating }}/10</span>
+                </div>
+                <div class="lawyer-stat">
+                    <span class="stat-label">Отзывы:{{ comments.count }}</span>
+                    <span class="stat-value">{{ lawyer.com }}</span>
+                </div>
+                <div class="lawyer-stat">
+                    <span class="stat-label">Успешных дел:</span>
+                    <span class="stat-value">{{ lawyer.succses }}</span>
+                </div>
+                <div class="lawyer-stat">
+                    <span class="stat-label">Стаж:</span>
+                    <span class="stat-value">{{ lawyer.stazh }} лет</span>
+                </div>
+            </div>
+            
+            <div class="lawyer-card-footer">
+                <a href="{% url 'LawyerProfile_page' lawyer.pk %}" class="lawyer-btn lawyer-btn-primary">Профиль</a>
+                <a href="{% url 'comments_page' lawyer.pk %}" class="lawyer-btn lawyer-btn-secondary">Написать</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    
+    {% if not lawyers %}
+    <div style="text-align: center; color: white; padding: 40px;">
+        <h2>Адвокатов пока нет</h2>
+        <p>Попробуйте позже</p>
+    </div>
+    {% endif %}
 </section>
 
-<div class="for_line">
-    <hr class="line">   
-</div>
-
-<section class="profile-header">
-    <img src="user-image.jpg" alt="Фото пользователя" class="profile-pic">
-    <div class="profile-info">
-        <h2>Иван Русски</h2>
-        <p>Статус: занят</p>
-        <p class="rating">⭐ 8.7/10</p>
-        <p><img src="./images/comm.svg" class="comm"> 27</p>
-    </div>
-</section>
 {%endblock%}
 
 </body>
